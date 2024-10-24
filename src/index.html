@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aircraft Movement Message</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <h1>Aircraft Movement Message</h1>
+  <div class="container">
+    <div id="arrival-section" class="section">
+      <div class="title-top">Arrival</div>
+      <label>Callsign: <input type="text" id="arrival-callsign"></label><br>
+      <label>Reg No: <input type="text" id="arrival-regno"></label><br>
+      <label>IATA Code: <input type="text" min="0" max="2359" maxlength="4" id="arrival-iata"></label><br>
+      <label>Land Time (Zulu): <br><input type="number" min="0" max="2359" placeholder="0000-2359" maxlength="4"
+          id="arrival-land-time"></label>
+      <button onclick="setLandTime()">Set Land Time</button><br><br>
+      <label>Block Time (Zulu): <br><input type="number" min="0" max="2359" placeholder="0000-2359" maxlength="4"
+          id="arrival-block-time"></label>
+      <button onclick="setBlockTime('arrival')">Set Block Time</button><br>
+      <br><br><br>
+      <button onclick="showArrivalMessage()">Show Arrival Message</button>
+    </div>
+
+    <div id="departure-section" class="section">
+      <div class="title-top">Departure</div>
+      <label>Callsign: <input type="text" id="departure-callsign"></label><br>
+      <label>Reg No: <input type="text" id="departure-regno"></label><br>
+      <label>IATA DEP: <input type="text" id="departure-iata"></label><br>
+      <label>IATA ARR: <input type="text" id="dep-arrival-iata"></label><br>
+      <label>ENR TIME: <input type="number" min="0" max="2359" maxlength="4" id="enroute-time" value="0000"></label><br>
+      <label>Block Time (Zulu): <br><input type="number" min="0" max="2359" maxlength="4" placeholder="0000-2359"
+          id="departure-block-time"></label>
+      <button onclick="setBlockTime('departure')">Set Block Time</button><br><br>
+      <label>Takeoff Time (Zulu): <br><input type="number" min="0" max="2359" placeholder="0000-2359" maxlength="4"
+          id="departure-takeoff-time"></label>
+      <button onclick="setTakeoffTime()">Set Takeoff Time</button><br>
+      <br>
+      <label>PAX: <input type="text" id="PAX">
+      </label>
+      <label>BAG: <input type="text" id="BAG"></label><br>
+      <button onclick="showDepartureMessage()">Show Departure Message</button>
+    </div>
+  </div>
+
+  <h2>Result</h2>
+  <div id="result" style="text-transform: uppercase;"></div>
+
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
